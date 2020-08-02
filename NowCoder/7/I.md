@@ -36,8 +36,29 @@
 
 4. **对于给定度数为 $d_{1∼n}$ 的一棵无根树共有 $\frac{(n-2)!}{\prod_{i=1}^{n}{(d_i-1)!}}$ 种情况**。
 
-
-
 参考：
 
 [初识prufer序列](https://www.cnblogs.com/chenxiaoran666/p/prufer.html)
+
+
+
+## Solution
+
+设
+
+$f_1[n]$ 为 $n$ 个点形成有标号的无根树个数
+
+$f_2[n]$ 为 $n$ 个点形成有标号的森林个数
+
+$g_1[n]$ 为 $n$ 个点形成有标号的无根树的贡献和
+
+$g_2[n]$ 为 $n$ 个点形成有标号的森林的贡献和
+$$
+\begin{aligned}
+f_1[n]&=n^{n-2}\\
+f_2[n]&=\sum_{i=0}^{n-1}C_{i-1}^{i}f_1[i+1]\times f_2[n-i-1]\\
+g_1[n]&=\sum_{i=1}^{n}\sum_{j=0}^{j=n}j^2C_{n-2}^{j-1}(n-1)^{n-2-(j-1)} \\
+&=n\sum_{j=0}^{j=n}j^2C_{n-2}^{j-1}(n-1)^{n-2-(j-1)} \\
+g_2[n]&=\sum_{i=0}^{n-1}C_{n-1}^{i}(g_1[i+1]\times f_2[n-i-1]+g_2[n-i-1]\times f_1[i+1])
+\end{aligned}
+$$
