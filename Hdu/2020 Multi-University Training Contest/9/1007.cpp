@@ -143,10 +143,8 @@ int main() {
                 write(Tree.w[Tree.find_pos(rt, x)]); puts("");
             }
         }
-        for (int j = 1; j <= n; j++) {
-            printf("%d%c", Tree.w[Tree.find_pos(rt, j)], " \n"[j == n]);
-            // write(Tree.w[Tree.find_pos(rt, j)]);
-            // putchar(" \n"[j == n]);
+        for (int i = 1; i <= n; i++) {
+            printf("%d%c", Tree.w[Tree.find_pos(rt, i)], " \n"[i == n]);
         }
     }
 #ifndef ONLINE_JUDGE
